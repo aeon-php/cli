@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php declare(strict_types=1);
+
+use Aeon\Symfony\Command\CalendarNTPTime;
+use Aeon\Symfony\Command\CalendarTimezoneDBVersion;
+use PackageVersions\Versions;
+use Symfony\Component\Console\Application;
+use Symfony\Component\HttpClient\HttpClient;
+
+(function () {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 'stderr');
+
+    require __DIR__ . '/../vendor/autoload.php';
+
+    $application = new Application(
+        'AeonPHP - Calendar command line application',
+        Versions::getVersion('aeon-php/cli')
+    );
+
+    $application->add(new CalendarTimezoneDBVersion(HttpClient::create()));
+    $application->add(new CalendarNTPTime());
+    $application->run();
+})();
