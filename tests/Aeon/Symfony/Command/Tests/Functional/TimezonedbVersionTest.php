@@ -19,6 +19,6 @@ final class TimezonedbVersionTest extends TestCase
 
         $commandTester->execute([], ['--dry-run']);
 
-        $this->assertSame(0, $commandTester->getStatusCode());
+        $this->assertSame(0, $commandTester->getStatusCode(), $commandTester->getDisplay());
     }
 }

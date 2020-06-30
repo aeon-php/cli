@@ -18,6 +18,6 @@ final class NTPTimeTest extends TestCase
 
         $commandTester->execute([]);
 
-        $this->assertSame(0, $commandTester->getStatusCode());
+        $this->assertSame(0, $commandTester->getStatusCode(), $commandTester->getDisplay());
     }
 }
