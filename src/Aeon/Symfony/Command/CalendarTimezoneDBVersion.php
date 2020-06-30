@@ -54,7 +54,7 @@ final class CalendarTimezoneDBVersion extends Command
 
         $timezoneDBIANAVersion = $crawler->filter('#timezone_version > #version')->first()->text();
         $timezoneDBIANARelease = $crawler->filter('#timezone_version > #date')->first()->text();
-        $phpTimezoneDBVersion = \timezone_version_get();
+        $phpTimezoneDBVersion = 'system.0'; //\timezone_version_get();
 
         $io->note('IANA Latest version: ' . $timezoneDBIANAVersion);
         $io->note('IANA Release date: ' . $timezoneDBIANARelease);
@@ -67,7 +67,11 @@ final class CalendarTimezoneDBVersion extends Command
         if ((int) $versionParts[0] !== $year) {
             $io->error('timezonedb is out of date, consider using `sudo pecl install timezonedb` to update it or upgrade your php version.');
 
-            return $input->getOption('dry-run') ? 0 : 1;
+            if ($input->getOption('dry-run')) {
+                return 0;
+            }
+
+            return 1;
         }
 
         $alphabet = \range('a', 'z');
@@ -76,7 +80,11 @@ final class CalendarTimezoneDBVersion extends Command
         if (\sprintf('%d%s', $year, $phpVersionLetter) !== $timezoneDBIANAVersion) {
             $io->error('timezonedb is out of date, consider using `sudo pecl install timezonedb` to update it or upgrade your php version.');
 
-            return $input->getOption('dry-run') ? 0 : 1;
+            if ($input->getOption('dry-run')) {
+                return 0;
+            }
+
+            return 1;
         }
 
         $io->success('timezonedb is up to date');

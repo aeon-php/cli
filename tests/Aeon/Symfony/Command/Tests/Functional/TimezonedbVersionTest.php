@@ -17,7 +17,7 @@ final class TimezonedbVersionTest extends TestCase
             new CalendarTimezoneDBVersion(HttpClient::create())
         );
 
-        $commandTester->execute([], ['--dry-run']);
+        $commandTester->execute(['--dry-run' => 'true']);
 
         $this->assertSame(0, $commandTester->getStatusCode(), $commandTester->getDisplay());
     }
