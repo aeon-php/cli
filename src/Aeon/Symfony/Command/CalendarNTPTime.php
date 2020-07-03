@@ -59,6 +59,12 @@ final class CalendarNTPTime extends Command
 
         $unpackedResponse = @\unpack('N12', $response);
 
+        if (!$unpackedResponse) {
+            $io->error('Invalid NTP server response');
+
+            return 1;
+        }
+
         $referenceTime = DateTime::fromString('1900-01-01 00:00:00');
         $unixTime = DateTime::fromString('1970-01-01 00:00:00');
 
