@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7dcd7e13fac61f7f62de8904e944819",
+    "content-hash": "62040b97338dd8393c5e43bfc1126af1",
     "packages": [
         {
             "name": "aeon-php/calendar",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aeon-php/calendar.git",
-                "reference": "827b79e7c900b6c7fae7d5f81d70dcdf1bb777b0"
+                "reference": "f9de822170b4f21449a334630452132d7afcecb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aeon-php/calendar/zipball/827b79e7c900b6c7fae7d5f81d70dcdf1bb777b0",
-                "reference": "827b79e7c900b6c7fae7d5f81d70dcdf1bb777b0",
+                "url": "https://api.github.com/repos/aeon-php/calendar/zipball/f9de822170b4f21449a334630452132d7afcecb5",
+                "reference": "f9de822170b4f21449a334630452132d7afcecb5",
                 "shasum": ""
             },
             "require": {
@@ -34,6 +34,7 @@
                 "psalm/plugin-phpunit": "^0.10.1",
                 "vimeo/psalm": "^3.11"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -53,7 +54,133 @@
                 "immutable",
                 "sleep"
             ],
-            "time": "2020-06-27T10:09:24+00:00"
+            "support": {
+                "issues": "https://github.com/aeon-php/calendar/issues",
+                "source": "https://github.com/aeon-php/calendar/tree/1.x"
+            },
+            "time": "2020-07-04T07:04:41+00:00"
+        },
+        {
+            "name": "aeon-php/process",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aeon-php/process.git",
+                "reference": "be4646dbc70ca86d60e89794260e6b6c6107a22c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aeon-php/process/zipball/be4646dbc70ca86d60e89794260e6b6c6107a22c",
+                "reference": "be4646dbc70ca86d60e89794260e6b6c6107a22c",
+                "shasum": ""
+            },
+            "require": {
+                "aeon-php/calendar": "1.x-dev",
+                "php": ">=7.4.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "infection/infection": "^0.16.3",
+                "phpstan/phpstan": "^0.12.25",
+                "phpstan/phpstan-phpunit": "^0.12.8",
+                "phpstan/phpstan-webmozart-assert": "^0.12.4",
+                "phpunit/phpunit": "^9.1",
+                "psalm/plugin-phpunit": "^0.10.1",
+                "vimeo/psalm": "^3.11"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-latest": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Aeon/Calendar/System/sleep.php"
+                ],
+                "psr-4": {
+                    "Aeon\\": [
+                        "src/Aeon"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP type safe, immutable calendar library",
+            "keywords": [
+                "calendar",
+                "holidays",
+                "immutable",
+                "sleep"
+            ],
+            "support": {
+                "source": "https://github.com/aeon-php/process/tree/1.x"
+            },
+            "time": "2020-07-04T07:10:59+00:00"
+        },
+        {
+            "name": "aeon-php/retry",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aeon-php/retry.git",
+                "reference": "4db1f6e2336ccf2f67b660bec131f8143621a47e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aeon-php/retry/zipball/4db1f6e2336ccf2f67b660bec131f8143621a47e",
+                "reference": "4db1f6e2336ccf2f67b660bec131f8143621a47e",
+                "shasum": ""
+            },
+            "require": {
+                "aeon-php/process": "^1.0@dev",
+                "php": ">=7.4.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "infection/infection": "^0.16.3",
+                "phpstan/phpstan": "^0.12.25",
+                "phpstan/phpstan-phpunit": "^0.12.8",
+                "phpstan/phpstan-webmozart-assert": "^0.12.4",
+                "phpunit/phpunit": "^9.1",
+                "psalm/plugin-phpunit": "^0.10.1",
+                "vimeo/psalm": "^3.11"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-latest": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Aeon/Retry/retry_helper.php"
+                ],
+                "psr-4": {
+                    "Aeon\\": [
+                        "src/Aeon"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Retry fragile operations in case of failure with different delay strategies and possibility to skip/terminate execution",
+            "keywords": [
+                "calendar",
+                "fail",
+                "retry"
+            ],
+            "support": {
+                "issues": "https://github.com/aeon-php/retry/issues",
+                "source": "https://github.com/aeon-php/retry/tree/1.x"
+            },
+            "time": "2020-07-04T14:25:21+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -4135,9 +4262,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "aeon-php/calendar": 20
+        "aeon-php/retry": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
@@ -4145,5 +4272,5 @@
         "php": ">=7.4.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

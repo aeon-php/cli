@@ -8,6 +8,8 @@ use Aeon\Calendar\Gregorian\DateTime;
 use Aeon\Calendar\Gregorian\GregorianCalendar;
 use Aeon\Calendar\Stopwatch;
 use Aeon\Calendar\TimeUnit;
+use Aeon\Retry\DelayModifier\RetryMultiplyDelay;
+use function Aeon\Retry\retry;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -34,36 +36,41 @@ final class CalendarNTPTime extends Command
 
         $io->title('Get NTP Time');
 
-
         $io->note(\sprintf('Connecting to ntp server udp://%s:%d...', $input->getOption('server'), $input->getOption('port')));
         $stopwatch = new Stopwatch();
         $stopwatch->start();
 
-        $socket = \stream_socket_client(
-            \sprintf(
-                'udp://%s:%d',
-                $input->getOption('server'),
-                $input->getOption('port')
-            ),
-            $errorNumber,
-            $errorMessage,
-            TimeUnit::seconds(10)->inSeconds()
+        $unpackedResponse = retry(
+            function () use ($input) : array {
+                $socket = \stream_socket_client(
+                    \sprintf(
+                        'udp://%s:%d',
+                        $input->getOption('server'),
+                        $input->getOption('port')
+                    ),
+                    $errorNumber,
+                    $errorMessage,
+                    TimeUnit::seconds(10)->inSeconds()
+                );
+                \fwrite($socket, \chr(0x23) . \str_repeat(chr(0x00), 47));
+                $response = fread($socket, 48);
+                \fclose($socket);
+                $unpackedResponse = @\unpack('N12', $response);
+
+                if (!$unpackedResponse) {
+                    throw new \RuntimeException('Invalid NTP server response');
+                }
+
+                return $unpackedResponse;
+            },
+            $retries = 5,
+            TimeUnit::milliseconds(100),
+            new RetryMultiplyDelay()
         );
-        \fwrite($socket, \chr(0x23) . \str_repeat(chr(0x00), 47));
-        $response = fread($socket, 48);
+
         $stopwatch->stop();
 
-        \fclose($socket);
-
         $io->note(\sprintf('Received response from NTP server in %s seconds', $stopwatch->totalElapsedTime()->inSecondsPreciseString()));
-
-        $unpackedResponse = @\unpack('N12', $response);
-
-        if (!$unpackedResponse) {
-            $io->error('Invalid NTP server response');
-
-            return 1;
-        }
 
         $referenceTime = DateTime::fromString('1900-01-01 00:00:00');
         $unixTime = DateTime::fromString('1970-01-01 00:00:00');

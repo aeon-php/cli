@@ -6,6 +6,9 @@ namespace Aeon\Symfony\Command;
 
 use Aeon\Calendar\Gregorian\GregorianCalendar;
 use Aeon\Calendar\Stopwatch;
+use Aeon\Calendar\TimeUnit;
+use Aeon\Retry\DelayModifier\RetryMultiplyDelay;
+use function Aeon\Retry\retry;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -13,6 +16,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 final class CalendarTimezoneDBVersion extends Command
 {
@@ -47,14 +51,24 @@ final class CalendarTimezoneDBVersion extends Command
         $io->note('Fetching IANA timezonedb...');
         $stopwatch = new Stopwatch();
         $stopwatch->start();
-        $response = $this->httpClient->request('GET', $input->getOption('iana-timezonedb-http'));
-        $crawler = new Crawler($response->getContent(true));
+
+        $response = retry(
+            function () use ($input) : ResponseInterface {
+                return $this->httpClient->request('GET', $input->getOption('iana-timezonedb-http'));
+            },
+            5,
+            TimeUnit::milliseconds(100),
+            new RetryMultiplyDelay()
+        );
+
         $stopwatch->stop();
+
+        $crawler = new Crawler($response->getContent(true));
         $io->note(\sprintf('IANA timezonedb fetched in %s seconds', $stopwatch->totalElapsedTime()->inSecondsPreciseString()));
 
         $timezoneDBIANAVersion = $crawler->filter('#timezone_version > #version')->first()->text();
         $timezoneDBIANARelease = $crawler->filter('#timezone_version > #date')->first()->text();
-        $phpTimezoneDBVersion = 'system.0'; //\timezone_version_get();
+        $phpTimezoneDBVersion = \timezone_version_get();
 
         $io->note('IANA Latest version: ' . $timezoneDBIANAVersion);
         $io->note('IANA Release date: ' . $timezoneDBIANARelease);

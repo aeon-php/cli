@@ -4,9 +4,10 @@
     "description": "Command line application for Aeon PHP Calendar",
     "keywords": ["calendar", "immutable", "cli"],
     "prefer-stable": true,
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.4.2",
-        "aeon-php/calendar": "^1.0@dev",
+        "aeon-php/retry": "^1.0@dev",
         "ocramius/package-versions": "^1.4",
         "symfony/console": "^4.4 || ^5.1",
         "symfony/css-selector": "^4.4 || ^5.1",
