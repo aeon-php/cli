@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Aeon\Symfony\Command;
 
+use function Aeon\Retry\retry;
 use Aeon\Calendar\Gregorian\GregorianCalendar;
 use Aeon\Calendar\Stopwatch;
 use Aeon\Calendar\TimeUnit;
 use Aeon\Retry\DelayModifier\RetryMultiplyDelay;
-use function Aeon\Retry\retry;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -35,8 +35,7 @@ final class CalendarTimezoneDBVersion extends Command
         $this
             ->setDescription('Check if the current version of timezonedb that php is using is up to date')
             ->addOption('iana-timezonedb-http', null, InputOption::VALUE_OPTIONAL, 'Url to IANA timezonedb http page', 'https://www.iana.org/time-zones')
-            ->addOption('dry-run', null, InputOption::VALUE_NONE, 'Assert timezonedb version but return 0 return code regardless of the result')
-        ;
+            ->addOption('dry-run', null, InputOption::VALUE_NONE, 'Assert timezonedb version but return 0 return code regardless of the result');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) : int

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Aeon\Symfony\Command;
 
+use function Aeon\Retry\retry;
 use Aeon\Calendar\Gregorian\DateTime;
 use Aeon\Calendar\Gregorian\GregorianCalendar;
 use Aeon\Calendar\Stopwatch;
 use Aeon\Calendar\TimeUnit;
 use Aeon\Retry\DelayModifier\RetryMultiplyDelay;
-use function Aeon\Retry\retry;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -26,8 +26,7 @@ final class CalendarNTPTime extends Command
             ->setDescription('Get ntp time and optionally compare it with php local time')
             ->addOption('server', 's', InputOption::VALUE_OPTIONAL, 'NTP Server url', 'pool.ntp.org')
             ->addOption('port', 'p', InputOption::VALUE_OPTIONAL, 'NTP Server port', 123)
-            ->addOption('compare', 'c', InputOption::VALUE_NONE, 'Compare NTP time with local time')
-        ;
+            ->addOption('compare', 'c', InputOption::VALUE_NONE, 'Compare NTP time with local time');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) : int
@@ -52,8 +51,8 @@ final class CalendarNTPTime extends Command
                     $errorMessage,
                     TimeUnit::seconds(10)->inSeconds()
                 );
-                \fwrite($socket, \chr(0x23) . \str_repeat(chr(0x00), 47));
-                $response = fread($socket, 48);
+                \fwrite($socket, \chr(0x23) . \str_repeat(\chr(0x00), 47));
+                $response = \fread($socket, 48);
                 \fclose($socket);
                 $unpackedResponse = @\unpack('N12', $response);
 
