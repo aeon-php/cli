@@ -63,7 +63,7 @@ final class CalendarTimezoneDBVersion extends Command
         $stopwatch->stop();
 
         $crawler = new Crawler($response->getContent(true));
-        $io->note(\sprintf('IANA timezonedb fetched in %s seconds', $stopwatch->totalElapsedTime()->inSecondsPreciseString()));
+        $io->note(\sprintf('IANA timezonedb fetched in %s seconds', $stopwatch->totalElapsedTime()->inSecondsPrecise()));
 
         $timezoneDBIANAVersion = $crawler->filter('#timezone_version > #version')->first()->text();
         $timezoneDBIANARelease = $crawler->filter('#timezone_version > #date')->first()->text();

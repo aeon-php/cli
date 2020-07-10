@@ -69,7 +69,7 @@ final class CalendarNTPTime extends Command
 
         $stopwatch->stop();
 
-        $io->note(\sprintf('Received response from NTP server in %s seconds', $stopwatch->totalElapsedTime()->inSecondsPreciseString()));
+        $io->note(\sprintf('Received response from NTP server in %s seconds', $stopwatch->totalElapsedTime()->inSecondsPrecise()));
 
         $referenceTime = DateTime::fromString('1900-01-01 00:00:00');
         $unixTime = DateTime::fromString('1970-01-01 00:00:00');
