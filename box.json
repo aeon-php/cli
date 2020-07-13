@@ -1,0 +1,12 @@
+{
+  "compactors": [
+    "KevinGH\\Box\\Compactor\\Php",
+    "KevinGH\\Box\\Compactor\\Json"
+  ],
+  "compression": "GZ",
+  "output": "build/aeon.phar",
+  "files-bin": [
+    "LICENSE"
+  ],
+  "git-version": "git-version"
+}
