@@ -14,11 +14,4 @@ Time Management Framework for PHP
 
 Aeon is a set of libraries that makes easier to work with PHP Date & Time in elegant Object Oriented way.
 
-Please read [Official Documentation](https://aeon-php.org/docs).
-
-# CLI
-
-Aeon CLI application brings few simple functions that helps to work with time related issues. 
-
-* `bin/aeon calendar:ntp:time --compare` - compare system timestamp with NTP server
-* `bin/aeon calendar:timezonedb:version` - compare timezonedb used by PHP with the one available at IANA website
+Please read [Official Documentation](https://aeon-php.org/docs/cli).
