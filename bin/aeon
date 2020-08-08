@@ -21,6 +21,6 @@ use Symfony\Component\HttpClient\HttpClient;
 
     $application->add(new CalendarTimezoneDBVersion(HttpClient::create()));
     $application->add(new CalendarNTPTime());
-    $application->add(new WorkingDay(__DIR__ . '/../vendor/azuyalabs/yasumi/src/Yasumi/Provider'));
+    $application->add(new WorkingDay());
     $application->run();
 })();
