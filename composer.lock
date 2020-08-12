@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "393401349ade5330669d808f114ff22f",
+    "content-hash": "94ab748c4d911df8a4df0d6ef5eab25a",
     "packages": [
         {
             "name": "aeon-php/calendar",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aeon-php/calendar-holidays",
-            "version": "1.x-dev",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aeon-php/calendar-holidays.git",
-                "reference": "046140212530225d0a03b4ba0d4b48615a41debc"
+                "reference": "9073cb1aa2e8084a9509b68d7283b8464e4276c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aeon-php/calendar-holidays/zipball/046140212530225d0a03b4ba0d4b48615a41debc",
-                "reference": "046140212530225d0a03b4ba0d4b48615a41debc",
+                "url": "https://api.github.com/repos/aeon-php/calendar-holidays/zipball/9073cb1aa2e8084a9509b68d7283b8464e4276c0",
+                "reference": "9073cb1aa2e8084a9509b68d7283b8464e4276c0",
                 "shasum": ""
             },
             "require": {
@@ -112,57 +112,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-08T06:56:27+00:00"
-        },
-        {
-            "name": "aeon-php/calendar-holidays-yasumi",
-            "version": "1.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/aeon-php/calendar-holidays-yasumi.git",
-                "reference": "3a61185df0dd97d8742a854323194946210ac914"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/aeon-php/calendar-holidays-yasumi/zipball/3a61185df0dd97d8742a854323194946210ac914",
-                "reference": "3a61185df0dd97d8742a854323194946210ac914",
-                "shasum": ""
-            },
-            "require": {
-                "aeon-php/calendar-holidays": "^1.0@dev",
-                "azuyalabs/yasumi": "^2.0",
-                "php": ">=7.4.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Aeon\\": [
-                        "src/Aeon"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Bridge for Aeon Calendar Holidays library and Yasumi",
-            "keywords": [
-                "Bridge",
-                "Yasumi",
-                "calendar",
-                "holidays",
-                "immutable"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/norberttech",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-08-07T20:58:08+00:00"
+            "time": "2020-08-09T09:04:53+00:00"
         },
         {
             "name": "aeon-php/retry",
@@ -269,71 +219,6 @@
                 }
             ],
             "time": "2020-08-02T16:39:17+00:00"
-        },
-        {
-            "name": "azuyalabs/yasumi",
-            "version": "2.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/azuyalabs/yasumi.git",
-                "reference": "e2f37e6de3b15642b83275a24bbfe101cd5c7791"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/azuyalabs/yasumi/zipball/e2f37e6de3b15642b83275a24bbfe101cd5c7791",
-                "reference": "e2f37e6de3b15642b83275a24bbfe101cd5c7791",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "fzaninotto/faker": "^1.9",
-                "mikey179/vfsstream": "^1.6",
-                "phpunit/phpunit": "^8.5"
-            },
-            "suggest": {
-                "ext-calendar": "For calculating the date of Easter"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Yasumi\\": "src/Yasumi/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sacha Telgenhof",
-                    "email": "me@sachatelgenhof.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "The easy PHP Library for calculating holidays.",
-            "homepage": "https://www.yasumi.dev",
-            "keywords": [
-                "Bank",
-                "calculation",
-                "calendar",
-                "celebration",
-                "date",
-                "holiday",
-                "holidays",
-                "national",
-                "time"
-            ],
-            "funding": [
-                {
-                    "url": "https://www.buymeacoffee.com/sachatelgenhof",
-                    "type": "other"
-                }
-            ],
-            "time": "2020-06-22T12:46:20+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -1652,16 +1537,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.7.0",
+            "version": "v4.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "21dce06dfbf0365c6a7cc8fdbdc995926c6a9300"
+                "reference": "8c58eb4cd4f3883f82611abeac2efbc3dbed787e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/21dce06dfbf0365c6a7cc8fdbdc995926c6a9300",
-                "reference": "21dce06dfbf0365c6a7cc8fdbdc995926c6a9300",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/8c58eb4cd4f3883f82611abeac2efbc3dbed787e",
+                "reference": "8c58eb4cd4f3883f82611abeac2efbc3dbed787e",
                 "shasum": ""
             },
             "require": {
@@ -1669,8 +1554,8 @@
                 "php": ">=7.0"
             },
             "require-dev": {
-                "ircmaxell/php-yacc": "0.0.5",
-                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
+                "ircmaxell/php-yacc": "^0.0.6",
+                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0 || ^9.0"
             },
             "bin": [
                 "bin/php-parse"
@@ -1678,7 +1563,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.7-dev"
+                    "dev-master": "4.8-dev"
                 }
             },
             "autoload": {
@@ -1700,7 +1585,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-07-25T13:18:53+00:00"
+            "time": "2020-08-09T10:23:20+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -2020,23 +1905,23 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.0.0",
+            "version": "9.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "ee24e82baca11d7d6fb3513e127d6000f541cf90"
+                "reference": "4abbce3b0ad05f2e7143ea5f775d5513cb5261e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ee24e82baca11d7d6fb3513e127d6000f541cf90",
-                "reference": "ee24e82baca11d7d6fb3513e127d6000f541cf90",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/4abbce3b0ad05f2e7143ea5f775d5513cb5261e4",
+                "reference": "4abbce3b0ad05f2e7143ea5f775d5513cb5261e4",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "ext-xmlwriter": "*",
-                "nikic/php-parser": "^4.7",
+                "nikic/php-parser": "^4.8",
                 "php": "^7.3 || ^8.0",
                 "phpunit/php-file-iterator": "^3.0.3",
                 "phpunit/php-text-template": "^2.0.2",
@@ -2057,7 +1942,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "9.0-dev"
+                    "dev-master": "9.1-dev"
                 }
             },
             "autoload": {
@@ -2089,7 +1974,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-07T04:12:30+00:00"
+            "time": "2020-08-10T17:45:51+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2318,16 +2203,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.3.3",
+            "version": "9.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "7e3942a29e7705cf109aa58c6e5d80997796d1dc"
+                "reference": "c638a0cac77347980352485912de48c99b42ad00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7e3942a29e7705cf109aa58c6e5d80997796d1dc",
-                "reference": "7e3942a29e7705cf109aa58c6e5d80997796d1dc",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c638a0cac77347980352485912de48c99b42ad00",
+                "reference": "c638a0cac77347980352485912de48c99b42ad00",
                 "shasum": ""
             },
             "require": {
@@ -2343,7 +2228,7 @@
                 "phar-io/version": "^3.0.2",
                 "php": "^7.3 || ^8.0",
                 "phpspec/prophecy": "^1.11.1",
-                "phpunit/php-code-coverage": "^9.0",
+                "phpunit/php-code-coverage": "^9.1.1",
                 "phpunit/php-file-iterator": "^3.0.4",
                 "phpunit/php-invoker": "^3.1",
                 "phpunit/php-text-template": "^2.0.2",
@@ -2412,7 +2297,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-08T05:12:01+00:00"
+            "time": "2020-08-11T15:36:12+00:00"
         },
         {
             "name": "sebastian/code-unit",
@@ -3368,9 +3253,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "aeon-php/calendar-holidays-yasumi": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
