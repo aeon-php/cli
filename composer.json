@@ -7,8 +7,8 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.4.2",
-        "aeon-php/calendar-holidays": "^0.1.0",
-        "aeon-php/retry": "^0.2.0",
+        "aeon-php/calendar-holidays": ">=0.2.0",
+        "aeon-php/retry": ">=0.3.0",
         "ocramius/package-versions": "^1.4",
         "symfony/console": "^4.4 || ^5.1",
         "symfony/css-selector": "^4.4 || ^5.1",
